@@ -54,7 +54,17 @@ int IsPalindrome_solution2(unsigned int number)
 
     return (reversed == copy) ? 1 : 0;
 }
-
+// ====================My soultion ===================
+int IsPalindrome_solution3(unsigned int number)
+{
+    int copy=number;
+    int reversed = 0;
+    while(copy != 0){
+        reversed = reversed * 10 + copy % 10;
+        copy /= 10;
+    }
+    return (reversed == number) ? 1 : 0;
+}
 // ==================== Test Code ====================
 
 void Test(char* testName, int number, int expected)
@@ -71,6 +81,12 @@ void Test(char* testName, int number, int expected)
         printf("solution 2 passed.\n");
     else
         printf("solution 2 FAILED.\n");
+
+    if(IsPalindrome_solution3(number) == expected)
+        printf("solution 3 passed.\n");
+    else
+        printf("solution 3 FAILED.\n");
+
 }
 
 int main(int argc, char* argv[])
